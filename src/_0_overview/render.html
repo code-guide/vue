@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" v-bind:title="message">
+        {{now}}
+    </div>
+    <script src="//cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script>
+        // 声明式渲染
+        var app = new Vue({
+            el: '#app',
+            data: {
+                now: new Date(),
+                message: "hello world"
+            }
+        });
+
+        // 修改对应变量
+        setInterval(() => {
+            app.now = new Date()
+        }, 1000);
+    </script>
+</body>
+</html>

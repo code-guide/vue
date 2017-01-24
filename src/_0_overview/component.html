@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <person-item v-for="person in persons" v-bind:person="person"></person-item>
+        </ul>
+        <Header></Header>
+    </div>
+    <script src="//cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script>
+        // 组件
+        Vue.component('person-item', {
+            props: ['person'],
+            template: '<li>{{person.name}} : {{person.age}}</li>'
+        })
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                persons: [
+                    { name: '张三', age: 29 },
+                    { name: '李四', age: 20 }
+                ]
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

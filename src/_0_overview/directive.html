@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul v-if="show">
+            <li v-for="person in persons">
+                {{person.name}}: {{person.age}}
+            </li>
+        </ul>
+    </div>
+    <script src="//cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script>
+        // 条件与循环
+        var app = new Vue({
+            el: '#app',
+            data: {
+                persons: [
+                    { name: '张三', age: 10 },
+                    { name: '李四', age: 20 }
+                ],
+                show: false
+            }
+        });
+
+        setTimeout(() => {
+            app.show = true;
+        }, 2000);
+
+        setTimeout(() => {
+        app.persons.push({name: '王五', age: 20});
+        }, 4000);
+    </script>
+</body>
+
+</html>
